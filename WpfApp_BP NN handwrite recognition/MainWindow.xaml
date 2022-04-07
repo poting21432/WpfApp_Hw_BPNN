@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp_BP_NN_handwrite_recognition.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_BP_NN_handwrite_recognition"
+        mc:Ignorable="d" FontSize="30"
+        Title="MainWindow" Height="700" Width="1080" Loaded="Window_Loaded">
+    <StackPanel HorizontalAlignment="Left" Margin="20">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Button Content="Train" Width="200" Height="80" x:Name="Button_Train" Click="Button_Train_Click"/>
+                <TextBlock Text="DataSet : Train" Margin="0 10"/>
+                <StackPanel Orientation="Horizontal" Margin="20 0">
+                    <TextBox Width="150" Text="0" x:Name="TextBox_ImageTrainID" TextChanged="TextBox_ImageTrainID_TextChanged"/>
+                    <StackPanel Margin="10 0">
+                        <Button x:Name="Button_TrainIncrease" Tag="{Binding ElementName=TextBox_ImageTrainID}" FontSize="12" Content="^" Margin="0 2" Click="Button_Increase_Click"/>
+                        <Button x:Name="Button_TrainDecrease" Tag="{Binding ElementName=TextBox_ImageTrainID}" FontSize="12" Content="v" Click="Button_Decrease_Click"/>
+                    </StackPanel>
+                </StackPanel>
+                <Image x:Name="Image_Train" Width="240" Height="240" Margin="0 10"/>
+                <TextBlock x:Name="TextBlox_TrainLabel" Text="Label : -1"/>
+                <TextBlock x:Name="TextBlox_TrainPredict" Text="Predict : -1"/>
+                <Button x:Name="ButtonStop" Content="Stop Training" Margin="0 10" Click="ButtonStop_Click"/>
+                <Button x:Name="Button_OutputFile" Content="Gen Answer" Margin="0 10" Click="Button_OutputFile_Click"/>
+            </StackPanel>
+            <StackPanel>
+                <Button Content="Test" Width="200" Height="80" x:Name="Button_Test" Click="Button_Test_Click"/>
+                <TextBlock Text="DataSet : Test" Margin="0 10"/>
+                <StackPanel Orientation="Horizontal" Margin="20 0">
+                    <TextBox Width="150" Text="0" x:Name="TextBox_ImageTestID" TextChanged="TextBox_ImageTestID_TextChanged"/>
+                    <StackPanel Margin="10 0">
+                        <Button x:Name="Button_TestIncrease" Tag="{Binding ElementName=TextBox_ImageTestID}" FontSize="12" Content="^" Margin="0 2" Click="Button_Increase_Click"/>
+                        <Button x:Name="Button_TestDecrease" Tag="{Binding ElementName=TextBox_ImageTestID}" FontSize="12" Content="v" Click="Button_Decrease_Click"/>
+                    </StackPanel>
+                </StackPanel>
+                <Image x:Name="Image_Test" Width="240" Height="240" Margin="0 10"/>
+                <TextBlock x:Name="TextBlox_TestLabel" Text="Label : -1"/>
+                <TextBlock x:Name="TextBlox_TestPredict" Text="Predict : -1"/>
+            </StackPanel>
+            <RichTextBox FontSize="15" x:Name="RichTextBox_Log" IsReadOnly="True" Margin="10" Height="600" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="550" Foreground="White" Background="Black">
+
+            </RichTextBox>
+        </StackPanel>
+    </StackPanel>
+</Window>
