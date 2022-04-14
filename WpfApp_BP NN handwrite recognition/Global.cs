@@ -80,5 +80,13 @@ namespace WpfApp_BP_NN_handwrite_recognition
                 return bitmapimage;
             }
         }
+        public static byte[] ToByteArray(this Bitmap image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, ImageFormat.Bmp);
+                return ms.ToArray();
+            }
+        }
     }
 }

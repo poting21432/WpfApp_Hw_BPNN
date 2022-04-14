@@ -29,8 +29,8 @@ namespace WpfApp_BP_NN_handwrite_recognition
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Global.ImagesTrain = MnistReader.ReadTrainingData().ToList();
-            Global.ImagesTest = MnistReader.ReadTestData().ToList();
+            Global.ImagesTrain = MnistReader.ReadPngTrainingData().ToList();
+            Global.ImagesTest = MnistReader.ReadPngTestingData().ToList();
             TextBox_ImageTrainID_TextChanged(TextBox_ImageTrainID, null);
             TextBox_ImageTestID_TextChanged(TextBox_ImageTestID, null);
         }
@@ -120,6 +120,11 @@ namespace WpfApp_BP_NN_handwrite_recognition
             if (File.Exists("./Answer.txt"))
                 File.Delete("./Answer.txt");
             File.WriteAllText("./Answer.txt", ans);
+        }
+
+        private void Button_Read_Click(object sender, RoutedEventArgs e)
+        {
+            Global.ImagesTest = MnistReader.ReadPngTestingData().ToList();
         }
     }
 }

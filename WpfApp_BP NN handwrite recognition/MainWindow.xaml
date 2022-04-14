@@ -37,6 +37,7 @@
                 <Image x:Name="Image_Test" Width="240" Height="240" Margin="0 10"/>
                 <TextBlock x:Name="TextBlox_TestLabel" Text="Label : -1"/>
                 <TextBlock x:Name="TextBlox_TestPredict" Text="Predict : -1"/>
+                <Button x:Name="Button_Read" Content="Read Test" Margin="0 10" Click="Button_Read_Click"/>
             </StackPanel>
             <RichTextBox FontSize="15" x:Name="RichTextBox_Log" IsReadOnly="True" Margin="10" Height="600" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="550" Foreground="White" Background="Black">
 

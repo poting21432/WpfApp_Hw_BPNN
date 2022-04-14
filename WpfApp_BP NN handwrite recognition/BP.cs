@@ -34,13 +34,13 @@ namespace NN_MNIST
         public double[,] Derivative_Hidden;
         public double[] Derivative_Output;
 
-        public int HiddenSize = 120;
+        public int HiddenSize = 60;
         public int HiddenLayersSize = 2;
         public int InputLayersSize = 28 * 28;//14 * 14;// 
         public int OutputLayersSize = 10;
         public const double LearningScale = 1;
         public int Iterative = 100;
-        public int LogCounter = 100;
+        public int LogCounter = 1000;
         public const double LossThreshold = 0.001;
 
         public BP()
@@ -138,7 +138,7 @@ namespace NN_MNIST
                         }
                     }
                     int n = 1; int AC = 0; int WA = 0;
-                    Global.ImagesTest.ForEach((img) =>
+                    Global.ImagesTrain.ForEach((img) =>
                     {
                         Forward(img);
                         int predict = FindMax();
